@@ -4,13 +4,18 @@ const mappedNumbers = filteredNumbers.map((number) => number * 2);
 console.log(mappedNumbers.map((number) => number + 5));
 
 const products = [
-    { name: "T-Shirt", price: 25 },
-    { name: "Socken", price: 5 },
-    { name: "Hose", price: 40 },
-    { name: "Schuhe", price: 80 },
-    { name: "Mütze", price: 8 }
+  { name: "T-Shirt", price: 25 },
+  { name: "Socken", price: 5 },
+  { name: "Hose", price: 40 },
+  { name: "Schuhe", price: 80 },
+  { name: "Mütze", price: 8 },
 ];
-const wenige10€Products = products.filter((product) => product.price < 10);
-const rabatt20Prozent = wenige10€Products.map((product) => product.price * 0.8);
-const productsArray = rabatt20Prozent.map((product) => `${product.name}: ${product.price}€`);
+const productsWenige10 = products.filter((product) => product.price > 10);
+const rabattProzent20 = productsWenige10.map((product) => ({
+  name: product.name,
+  price: product.price * 0.8,
+}));
+const productsArray = rabattProzent20.map(
+  (product) => `${product.name}: ${product.price}€`,
+);
 console.log(productsArray);
