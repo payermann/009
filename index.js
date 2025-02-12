@@ -10,12 +10,15 @@ const products = [
   { name: "Schuhe", price: 80 },
   { name: "Mütze", price: 8 },
 ];
-const productsWenige10 = products.filter((product) => product.price > 10);
+
+const sortedProducts = products.sort((a, b) => a.price - b.price);
+console.log(sortedProducts);
+const productsWenige10 = sortedProducts.filter((product) => product.price > 10);
 const rabattProzent20 = productsWenige10.map((product) => ({
   name: product.name,
   price: product.price * 0.8,
 }));
 const productsArray = rabattProzent20.map(
-  (product) => `${product.name}: ${product.price}€`,
+  (product) => `${product.name}: ${product.price.toFixed(2)}€`,
 );
 console.log(productsArray);
